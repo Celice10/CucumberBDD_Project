@@ -7,8 +7,8 @@ import io.cucumber.testng.CucumberOptions;
 
     @CucumberOptions(
             features = "src/test/resources/features",
-            glue = {"stepDefinations"},
-            tags = "@createGroup",
+            glue = {"stepDefinations", "hooks"},
+            tags = "@smoke",
             plugin = {"pretty", "html:target/cucumber-reports.html",
                     "json:target/cucumber-reports.json",
                     "junit:target/cucumber-reports.xml"},

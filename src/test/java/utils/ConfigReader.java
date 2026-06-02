@@ -11,7 +11,7 @@ public class ConfigReader {
 
         prop = new Properties();         // Create a Properties object to hold the configuration properties
         try {
-            FileInputStream file = new FileInputStream("src/test/resources/configs/config.properties");   // Load the properties file using FileInputStream
+            FileInputStream file = new FileInputStream("src/test/resources/config.properties");   // Load the properties file using FileInputStream
             prop.load(file);                                                                            // Load the properties from the file into the Properties object
 
         } catch (Exception e) {                                 // Handle any exceptions that may occur during file loading

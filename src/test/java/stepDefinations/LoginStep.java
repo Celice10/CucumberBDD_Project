@@ -9,11 +9,16 @@ import utils.ConfigReader;
 public class LoginStep {
 
 
-    WebDriver driver = BrowserFactory.getDriver();
-    LoginPage loginPage = new LoginPage(driver);
+    WebDriver driver;
+    LoginPage loginPage;
+
+
 
     @Given("the user is on the login page")
     public void clickLoginButton() {
+        driver = BrowserFactory.getDriver();
+        loginPage = new LoginPage(driver);
+
         loginPage.clickLoginButton();
 
     }
@@ -34,7 +39,7 @@ public class LoginStep {
     @Then("the user should be redirected to the dashboard")
     public void verifyDashboardIsDisplayed() {
 
-        assert loginPage.userMenuButton.isDisplayed();
+        assert loginPage.isMenuButtonDisplayed();
 
 
     }
