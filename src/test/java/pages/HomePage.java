@@ -12,7 +12,10 @@ public class HomePage {
     WebDriver driver;
 
 
-    @FindBy(css = "button.user-pill")
+    //@FindBy(css = "button.user-pill")
+    //public WebElement menuButton;
+
+    @FindBy(xpath = "/html/body/div/div/nav/div[1]/div[3]/div/button")
     public WebElement menuButton;
 
     @FindBy(css = "button.nav-dropdown-item")
