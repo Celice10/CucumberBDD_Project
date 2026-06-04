@@ -43,4 +43,8 @@ public class LoginStep {
 
 
     }
+    @When("the user clicks sign up link")
+    public void the_user_clicks_sign_up_link() {
+
+    }
 }

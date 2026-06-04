@@ -39,4 +39,33 @@ public class ConfigReader {
 
         return prop.getProperty("password");
     }
+
+    public static String getGroupName() {
+
+        return prop.getProperty("groupName");
+    }
+    public static String getGroupDescription() {
+
+        return prop.getProperty("groupDescription");
+    }
+        public static String getGroupYear() {
+
+            return prop.getProperty("groupYear");
+        }
+
+        public static String getGroupMaxCapacity() {
+
+            return prop.getProperty("groupMaxCapacity");
+        }
+
+        public static String getStartDate() {
+
+            return prop.getProperty("startDate");
+        }
+
+        public static String getEndDate() {
+
+            return prop.getProperty("endDate");
+        }
+
 }

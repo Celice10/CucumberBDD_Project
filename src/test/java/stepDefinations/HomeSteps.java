@@ -33,10 +33,19 @@ public class HomeSteps {
         homepage.clickMenuButton();
     }
 
-    @When("the user selects {string} from the dropdown menu")
-    public void the_user_selects_from_the_dropdown_menu(String optionName) {
+    @When("the user navigates to Admin Panel")
+    public void the_user_navigates_to_admin_panel(String optionName) {
        homepage.selectDropdownOption(optionName);
+
+
     }
+
+    @And("the user logs out")
+    public void the_user_logs_out() {
+
+    }
+
+
 
 
 }

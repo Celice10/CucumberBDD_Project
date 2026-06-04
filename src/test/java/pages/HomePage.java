@@ -1,19 +1,18 @@
 package pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import java.util.List;
 
-public class HomePage {
+import static utils.BrowserFactory.getDriver;
 
-    WebDriver driver;
+public class HomePage extends BasePage {
 
-
-    //@FindBy(css = "button.user-pill")
-    //public WebElement menuButton;
 
     @FindBy(xpath = "/html/body/div/div/nav/div[1]/div[3]/div/button")
     public WebElement menuButton;
@@ -22,25 +21,40 @@ public class HomePage {
     List<WebElement> dropdownOptions;
 
 
-    public HomePage(WebDriver driver) {
-        this.driver = driver;
 
+
+    public HomePage(WebDriver driver) {
+        super(driver);
         PageFactory.initElements(driver, this);
     }
 
 
     public void clickMenuButton() {
-        menuButton.click();
+        //menuButton.click();
+        click(menuButton);         //from BasePage, we can use the click method which includes waiting for the element to be clickable
     }
 
-    //All dropdown share the same class, so we can use a loop to find the correct one by its text
     public void selectDropdownOption(String optionName) {
 
-        for (WebElement option : dropdownOptions) {
-            if (option.getText().trim().equalsIgnoreCase(optionName)) {
-                option.click();
-                break;
-            }
-        }
+        click(menuButton);
+
+        By optionLocator = By.xpath(
+                "//button[contains(@class,'nav-dropdown-item')]" +
+                        "[.//span[contains(text(),'" + optionName + "')]]"
+        );
+
+        WebElement option = wait.until(
+                ExpectedConditions.elementToBeClickable(optionLocator)
+        );
+
+        option.click();
     }
 }
+
+
+
+
+
+
+
+
