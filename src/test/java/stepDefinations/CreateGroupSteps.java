@@ -1,21 +1,21 @@
 package stepDefinations;
 
+import io.cucumber.java.Scenario;
 import io.cucumber.java.en.*;
-import org.openqa.selenium.WebDriver;
-import pages.CreateGroupPage;
-import utils.BrowserFactory;
 import utils.ConfigReader;
+import utils.ScenarioContext;
 
-public class CreateGroupSteps {
 
-    WebDriver driver;
-    CreateGroupPage createGroupPage;
+public class CreateGroupSteps extends BaseSteps{
+
+    //WebDriver driver;
+    //CreateGroupPage createGroupPage;
 
 
     @When("the user opens Groups section")
     public void the_user_opens_groups_section() {
-        driver = BrowserFactory.getDriver();
-        createGroupPage = new CreateGroupPage(driver);
+        //driver = BrowserFactory.getDriver();
+        //createGroupPage = new CreateGroupPage(driver);
 
         createGroupPage.clickGroupsButton();
     }
@@ -25,18 +25,28 @@ public class CreateGroupSteps {
         createGroupPage.clickCreateGroupButton();
     }
 
-
     @When("the user enters group details")
-    public void the_user_enters_group_details(String string, String string2) {
+    public void the_user_enters_group_details() {
 
-        createGroupPage.createGroupInput(ConfigReader.getGroupName(),
+        String groupName = ConfigReader.getGroupName()
+                + "_" + System.currentTimeMillis(); // Append timestamp to ensure uniqueness
+        ScenarioContext.set("groupName", groupName); // Store the unique group name in scenario context
+
+
+        createGroupPage.createGroupInput(groupName,
                 ConfigReader.getGroupDescription(),
                 ConfigReader.getGroupYear(),
                 ConfigReader.getGroupMaxCapacity(),
                 ConfigReader.getStartDate(),
                 ConfigReader.getEndDate());
-
     }
+
+    @And("the user submits the form")
+    public void the_user_submits_the_form() {
+
+        createGroupPage.submitGroup();
+    }
+
     @Then("the user should see group creation success message")
     public void the_user_should_see_group_creation_success_message() {
 
@@ -45,22 +55,10 @@ public class CreateGroupSteps {
     @When("the user clicks back to website button")
     public void the_user_clicks_back_to_website_button() {
 
+        createGroupPage.clickBackToWebsite();
+
     }
 
 
-
-
-
-    @And("the user navigates to sign up page")
-    public void the_user_navigates_to_sign_up_page() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
-    }
-
-    @And("the group {string} should exist in dropdown")
-    public void the_group_should_exist_in_dropdown(String string) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
-    }
 
 }

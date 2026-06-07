@@ -22,11 +22,12 @@ public class HomePage extends BasePage {
 
 
 
-
     public HomePage(WebDriver driver) {
         super(driver);
         PageFactory.initElements(driver, this);
     }
+
+
 
 
     public void clickMenuButton() {
@@ -48,6 +49,7 @@ public class HomePage extends BasePage {
         );
 
         option.click();
+
     }
 }
 

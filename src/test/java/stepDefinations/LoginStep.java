@@ -6,18 +6,17 @@ import pages.LoginPage;
 import utils.BrowserFactory;
 import utils.ConfigReader;
 
-public class LoginStep {
+public class LoginStep  extends BaseSteps{
 
 
-    WebDriver driver;
-    LoginPage loginPage;
+
 
 
 
     @Given("the user is on the login page")
     public void clickLoginButton() {
-        driver = BrowserFactory.getDriver();
-        loginPage = new LoginPage(driver);
+        //driver = BrowserFactory.getDriver();
+        //loginPage = new LoginPage(driver);
 
         loginPage.clickLoginButton();
 
@@ -45,6 +44,7 @@ public class LoginStep {
     }
     @When("the user clicks sign up link")
     public void the_user_clicks_sign_up_link() {
+        loginPage.clickSignupLink();
 
     }
 }

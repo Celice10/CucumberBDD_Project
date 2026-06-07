@@ -25,6 +25,10 @@ public class LoginPage {
     @FindBy(xpath = "//*[@id=\"app-root\"]/nav/div[1]/div[3]/div/button")
     public WebElement userMenuButton;
 
+    @FindBy(id = "signup-toggle")
+    public WebElement signupLink;
+
+
     public LoginPage(WebDriver driver){
         this.driver = driver;
         PageFactory.initElements(driver, this);
@@ -57,4 +61,7 @@ public class LoginPage {
         return userMenuButton.isDisplayed();
     }
 
+    public void clickSignupLink(){
+        signupLink.click();
+    }
 }

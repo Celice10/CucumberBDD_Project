@@ -9,7 +9,7 @@ import java.time.Duration;
 
 public class Hooks {
 
-    WebDriver driver;
+    public static WebDriver driver;
 
     @Before
     public void setUp(){
@@ -24,6 +24,7 @@ public class Hooks {
 
     /*@After
     public void tearDown(){
+        ScenarioContext.clear();
         BrowserFactory.closeBrowser();
     }*/
 }

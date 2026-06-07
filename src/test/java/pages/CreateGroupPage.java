@@ -33,9 +33,9 @@ public class CreateGroupPage extends BasePage {
     public WebElement endDateInput;
 
     @FindBy(xpath = "//button[contains(text(),'Create Group')]")
-    public WebElement createButton;
+    public WebElement create;
 
-    @FindBy(xpath = "//button[contains(text(),'back to website')]")
+    @FindBy(xpath = "//button[contains(text(),'Back to Website')]")
     public WebElement backToWebsiteButton;
 
 
@@ -56,25 +56,24 @@ public class CreateGroupPage extends BasePage {
     public void createGroupInput(String name, String description, String year,
                                  String maxCapacity, String startDate, String endDate) {
 
-        // 1. wait for modal (NOT input)
-        wait.until(ExpectedConditions.visibilityOf(groupNameInput));
+        type(groupNameInput, name);     //using type method from BasePage which includes waiting for visibility and clearing the field before typing
+        type(groupDescriptionInput, description);
 
-        // 2. interact
-        groupNameInput.click();
-        groupNameInput.sendKeys(name);
-
-        wait.until(ExpectedConditions.visibilityOf(groupDescriptionInput));
-
-        groupDescriptionInput.click();
-        groupDescriptionInput.sendKeys(description);
-
-        groupYearInput.sendKeys(year);
-        groupMaxCapacityInput.sendKeys(maxCapacity);
+        type(groupYearInput, year);
+        type(groupMaxCapacityInput, maxCapacity);
 
         startDateInput.sendKeys(startDate);
         endDateInput.sendKeys(endDate);
 
-        click(createButton);
+        //wait.until(ExpectedConditions.visibilityOf(groupDescriptionInput));
+        //groupDescriptionInput.click();
+        //groupDescriptionInput.sendKeys(description);
+        //groupYearInput.sendKeys(year);
+        //groupMaxCapacityInput.sendKeys(maxCapacity);
+        //click(create);
+    }
+    public void submitGroup() {
+        click(create);
     }
 
     public void clickBackToWebsite() {

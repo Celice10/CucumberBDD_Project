@@ -9,12 +9,14 @@ Feature: Home Page Navigation
     And the user opens Groups section
     And the user clicks Create New Group button
     And the user enters group details
+    And the user submits the form
 
     Then the user should see group creation success message
 
     When the user clicks back to website button
 
     And the user logs out
+    And clicks the login button again
     And the user clicks sign up link
 
     Then the group should exist in dropdown
