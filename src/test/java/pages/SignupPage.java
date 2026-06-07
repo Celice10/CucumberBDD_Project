@@ -17,9 +17,6 @@ public class SignupPage extends BasePage {
         super(driver);
     }
 
-    //public void clickGroupDropdown() {
-      //  click(selectYourGroupDropdown);}
-
     public boolean isGroupPresent(String expectedGroup) {
 
         Select select = new Select(selectYourGroupDropdown);
@@ -34,8 +31,4 @@ public class SignupPage extends BasePage {
         return false;
     }
 
-
-    //public boolean isGroupNameDisplayed() {
-      //  return groupName.isDisplayed();
-    //}
 }

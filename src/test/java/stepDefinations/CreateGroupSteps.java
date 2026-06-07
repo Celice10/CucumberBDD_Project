@@ -8,14 +8,8 @@ import utils.ScenarioContext;
 
 public class CreateGroupSteps extends BaseSteps{
 
-    //WebDriver driver;
-    //CreateGroupPage createGroupPage;
-
-
     @When("the user opens Groups section")
     public void the_user_opens_groups_section() {
-        //driver = BrowserFactory.getDriver();
-        //createGroupPage = new CreateGroupPage(driver);
 
         createGroupPage.clickGroupsButton();
     }

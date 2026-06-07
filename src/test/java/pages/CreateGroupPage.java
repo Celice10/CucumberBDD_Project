@@ -4,7 +4,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class CreateGroupPage extends BasePage {
 
@@ -65,12 +64,6 @@ public class CreateGroupPage extends BasePage {
         startDateInput.sendKeys(startDate);
         endDateInput.sendKeys(endDate);
 
-        //wait.until(ExpectedConditions.visibilityOf(groupDescriptionInput));
-        //groupDescriptionInput.click();
-        //groupDescriptionInput.sendKeys(description);
-        //groupYearInput.sendKeys(year);
-        //groupMaxCapacityInput.sendKeys(maxCapacity);
-        //click(create);
     }
     public void submitGroup() {
         click(create);

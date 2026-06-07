@@ -7,8 +7,6 @@ import utils.ScenarioContext;
 
 public class SignupSteps extends BaseSteps{
 
-
-
     @Then("the group should exist in dropdown")
     public void verify_group_exists() {
 

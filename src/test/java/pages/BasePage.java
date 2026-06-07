@@ -31,12 +31,6 @@ public class BasePage {
         element.sendKeys(text);
     }
 
-//    public void setDate(WebElement element, String value) {
-//        wait.until(ExpectedConditions.visibilityOf(element));
-//        ((JavascriptExecutor) driver).executeScript(
-//                "arguments[0].value = arguments[1];", element, value
-//        );
-//    }
 
     public boolean isVisible(WebElement element){
         return wait.until(ExpectedConditions.visibilityOf(element)).isDisplayed();

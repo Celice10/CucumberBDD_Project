@@ -31,7 +31,7 @@ public class HomePage extends BasePage {
 
 
     public void clickMenuButton() {
-        //menuButton.click();
+
         click(menuButton);         //from BasePage, we can use the click method which includes waiting for the element to be clickable
     }
 
